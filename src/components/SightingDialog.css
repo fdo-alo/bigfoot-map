@@ -1,0 +1,394 @@
+/* Bigfoot Sightings — BFRO case-file dialog */
+
+/* Modal shell */
+.sighting-dialog {
+    width: min(720px, calc(100vw - 32px));
+    height: min(760px, 90dvh);
+    max-height: 90dvh;
+    box-sizing: border-box;
+    padding: 0;
+    border: 1px solid #475247;
+    border-radius: 16px;
+    background: #171c19;
+    color: #f2e5cc;
+    box-shadow: 0 20px 70px #0008;
+    overflow: hidden;
+}
+
+.sighting-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+}
+
+/* Three rows: fixed header, scrollable body, fixed footer */
+.case-file {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* Header */
+.case-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #364439;
+}
+
+.case-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    min-width: 0;
+    flex: 1;
+}
+
+.case-header-text {
+    min-width: 0;
+}
+
+.case-eyebrow {
+    color: #b8c5b4;
+    font-size: 11px;
+    letter-spacing: 1.2px;
+}
+
+.sighting-dialog .case-header h2 {
+    margin: 6px 0 8px;
+    font-size: 22px;
+    font-weight: 650;
+    line-height: 1.25;
+    color: #f2e5cc;
+    overflow-wrap: anywhere;
+}
+
+.case-location {
+    margin: 0;
+    color: #b8c5b4;
+    font-size: 13px;
+}
+
+/* Animated Footzy within the header */
+.footzy-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    background: #29352c;
+    border: 1px solid #455047;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.footzy-animation .footzy-marker {
+    flex-shrink: 0;
+    transform: scale(1.4);
+    transform-origin: center;
+}
+
+/* Scrollable central region */
+.case-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+    padding: 20px 24px 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+}
+
+/* Case metadata */
+.case-metadata {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.metadata-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+    padding: 14px;
+    border-radius: 10px;
+    background: #263029;
+}
+
+.metadata-item span {
+    color: #aec0ac;
+    font-size: 12px;
+}
+
+.metadata-item strong {
+    color: #f2e5cc;
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+/* Witness text */
+.case-testimony {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.section-heading,
+.audio-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.section-heading h3 {
+    margin: 0;
+    color: #f2e5cc;
+    font-size: 15px;
+}
+
+.section-heading span,
+.audio-heading span {
+    color: #b4c2b1;
+    font-size: 10px;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
+}
+
+.testimony-text {
+    padding: 16px;
+    border-radius: 10px;
+    background: #242820;
+    color: #e8ddc9;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Narration panel */
+.case-audio {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 12px;
+    background: #263029;
+}
+
+.audio-heading strong {
+    color: #f2e5cc;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.voice-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.voice-label {
+    color: #c9d2c6;
+    font-size: 13px;
+}
+
+.voice-options {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 2px;
+    padding: 3px;
+    border: 1px solid #455247;
+    border-radius: 9px;
+    background: #19221d;
+}
+
+/* Common buttons */
+.sighting-dialog button {
+    padding: 10px 14px;
+    border: 1px solid #596358;
+    border-radius: 8px;
+    background: #38433b;
+    color: #f2e5cc;
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sighting-dialog button:hover:not(:disabled) {
+    background: #4b5b4e;
+}
+
+.sighting-dialog button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.sighting-dialog button:focus-visible {
+    outline: 2px solid #d2b789;
+    outline-offset: 2px;
+}
+
+.sighting-dialog .close-button {
+    flex-shrink: 0;
+    padding: 7px 12px;
+    font-size: 22px;
+    line-height: 1;
+}
+
+/* Male / Female segmented control */
+.sighting-dialog .voice-options button {
+    min-width: 70px;
+    padding: 7px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #c3cfc0;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 150ms ease, color 150ms ease;
+}
+
+.sighting-dialog .voice-options button:hover:not(:disabled):not(.active) {
+    background: #344238;
+}
+
+.sighting-dialog .voice-options button.active,
+.sighting-dialog .voice-options button.active:hover:not(:disabled) {
+    background: #d2b789;
+    color: #2b241a;
+}
+
+.sighting-dialog .voice-options button.active:disabled {
+    opacity: 0.75;
+}
+
+.sighting-dialog .voice-options button:not(.active):disabled {
+    opacity: 0.4;
+}
+
+/* Audio playback buttons */
+.audio-buttons {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.sighting-dialog .audio-buttons button {
+    min-height: 40px;
+}
+
+.sighting-dialog .audio-buttons .primary-button {
+    flex: 1;
+    background: #d2b789;
+    border-color: #d2b789;
+    color: #2b241a;
+    font-weight: 600;
+}
+
+.sighting-dialog .audio-buttons .primary-button:hover:not(:disabled) {
+    background: #e8cc9d;
+}
+
+/* Always-visible navigation */
+.case-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 24px;
+    border-top: 1px solid #455047;
+    background: #171c19;
+}
+
+.case-position {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+}
+
+.case-position span {
+    color: #aec0ac;
+    font-size: 11px;
+}
+
+/* Small screens */
+@media (max-width: 520px) {
+    .sighting-dialog {
+        width: calc(100vw - 16px);
+        height: 94dvh;
+        max-height: 94dvh;
+    }
+
+    .case-header {
+        gap: 8px;
+        padding: 14px 16px 12px;
+    }
+
+    .case-header-content {
+        gap: 10px;
+    }
+
+    .sighting-dialog .case-header h2 {
+        font-size: 18px;
+    }
+
+    .footzy-animation {
+        width: 60px;
+        height: 60px;
+    }
+
+    .footzy-animation .footzy-marker {
+        transform: scale(1.15);
+    }
+
+    .case-body {
+        gap: 16px;
+        padding: 16px;
+    }
+
+    .case-metadata {
+        grid-template-columns: 1fr;
+    }
+
+    .case-audio {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .sighting-dialog .voice-options button {
+        min-width: 56px;
+        padding: 7px 9px;
+    }
+
+    .audio-buttons {
+        gap: 6px;
+    }
+
+    .sighting-dialog .audio-buttons button {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .case-navigation {
+        gap: 6px;
+        padding: 12px 16px;
+    }
+
+    .case-navigation button {
+        padding: 8px;
+    }
+}

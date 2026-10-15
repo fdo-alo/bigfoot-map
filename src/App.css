@@ -1,0 +1,94 @@
+.footzy-marker {
+  width: 44px;
+  height: 44px;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  transform: translate(-50%, -50%);
+  will-change: background-position;
+}
+
+.app-layout {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.app-layout h1 {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 12px;
+  text-align: center;
+  font-size: clamp(24px, 3vw, 42px);
+}
+
+.app-map {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+.app-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 72px;
+  padding: 10px 24px;
+
+  background: #344D38;
+  border-bottom: 3px solid #A9BB8B;
+}
+
+.app-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand-icon {
+  font-size: 30px;
+}
+
+.app-brand h1 {
+  margin: 0;
+  padding: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(23px, 2.5vw, 32px);
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1.15;
+  color: #F5E8CB;
+}
+
+.app-brand p {
+  margin: 4px 0 0;
+  color: #CEDBC5;
+  font-family: system-ui, sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 520px) {
+  .app-header {
+    min-height: 64px;
+    padding: 8px 12px;
+  }
+
+  .brand-icon {
+    font-size: 24px;
+  }
+
+  .app-brand h1 {
+    font-size: 23px;
+  }
+
+  .app-brand p {
+    font-size: 9px;
+    letter-spacing: 0.4px;
+  }
+}

@@ -1,0 +1,382 @@
+{
+  "version": 3,
+  "layout": "strip",
+  "source": "animate",
+  "image": "footzy-n_spritesheet.zerk.png",
+  "sheet_w": 2640,
+  "sheet_h": 44,
+  "frame_w": 44,
+  "frame_h": 44,
+  "frame_count": 60,
+  "columns": 60,
+  "rows": 1,
+  "source_frame_w": 44,
+  "source_frame_h": 44,
+  "scale": 1,
+  "pad": 6,
+  "source_pad": 6,
+  "animations": {
+    "idle": {
+      "start": 0,
+      "count": 6,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ms": [
+        620,
+        480,
+        560,
+        480,
+        620,
+        560
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        5
+      ]
+    },
+    "walk": {
+      "start": 6,
+      "count": 6,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ms": [
+        240,
+        190,
+        250,
+        240,
+        190,
+        250
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        5
+      ]
+    },
+    "run": {
+      "start": 12,
+      "count": 6,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ms": [
+        150,
+        115,
+        165,
+        150,
+        115,
+        165
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        5
+      ]
+    },
+    "jump": {
+      "start": 18,
+      "count": 6,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "ms": [
+        260,
+        300,
+        130,
+        190,
+        200,
+        230
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        5
+      ]
+    },
+    "hurt": {
+      "start": 24,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        110,
+        190,
+        230,
+        210
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "attack": {
+      "start": 28,
+      "count": 5,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "ms": [
+        280,
+        240,
+        120,
+        210,
+        260
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        4
+      ]
+    },
+    "wave": {
+      "start": 33,
+      "count": 3,
+      "source_indices": [
+        0,
+        1,
+        2
+      ],
+      "ms": [
+        320,
+        260,
+        300
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        2
+      ]
+    },
+    "celebrate": {
+      "start": 36,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        300,
+        260,
+        300,
+        340
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "skip": {
+      "start": 40,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        260,
+        180,
+        260,
+        180
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "hop": {
+      "start": 44,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        220,
+        120,
+        160,
+        240
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "sweep": {
+      "start": 48,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        300,
+        140,
+        240,
+        260
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "throw": {
+      "start": 52,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        300,
+        120,
+        220,
+        260
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    },
+    "bigjab": {
+      "start": 56,
+      "count": 4,
+      "source_indices": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ms": [
+        300,
+        120,
+        220,
+        260
+      ],
+      "easing": [
+        "hold",
+        "hold",
+        "hold",
+        "hold"
+      ],
+      "range": [
+        0,
+        3
+      ]
+    }
+  }
+}
