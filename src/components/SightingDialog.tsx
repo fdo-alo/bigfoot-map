@@ -26,7 +26,7 @@ export default function SightingDialog({
     const bodyRef = useRef<HTMLElement>(null);
 
     const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
-    const [voiceGender, setVoiceGender] = useState<"male" | "female">("male");
+    const [selectedVoiceURI, setSelectedVoiceURI] = useState<string>("");
 
     useEffect(() => {
         const dialog = dialogRef.current;
@@ -65,18 +65,10 @@ export default function SightingDialog({
     }, [index, reports]);
 
     function selectVoice(): SpeechSynthesisVoice | undefined {
-        const englishVoices = voices.filter(v =>
-            v.lang.toLowerCase().startsWith("en")
+        return voices.find(
+            voice => voice.voiceURI === selectedVoiceURI
         );
-
-        const patterns = voiceGender === "female"
-            ? /female|zira|samantha|victoria|aria|jenny|ava|susan/i
-            : /male|david|mark|guy|daniel|alex|fred/i;
-
-        return englishVoices.find(v => patterns.test(v.name))
-            ?? englishVoices[0];
     }
-
 
     function stopAudio() {
         // Invalidate callbacks belonging to previous playback.
@@ -174,6 +166,10 @@ export default function SightingDialog({
 
     if (!report) return null;
 
+    const englishVoices = voices
+        .filter(voice => voice.lang.toLowerCase().startsWith("en"))
+        .sort((a, b) => a.name.localeCompare(b.name));
+
     return (
         <dialog
             ref={dialogRef}
@@ -253,33 +249,28 @@ export default function SightingDialog({
                         </div>
 
                         <div className="voice-selector">
-                            <span className="voice-label">Narrator</span>
+                            <label className="voice-label" htmlFor="narrator-voice">
+                                Narrator voice
+                            </label>
 
-                            <div
-                                className="voice-options"
-                                role="group"
-                                aria-label="Narrator voice"
+                            <select
+                                id="narrator-voice"
+                                className="voice-dropdown"
+                                value={selectedVoiceURI}
+                                disabled={audioState !== "stopped"}
+                                onChange={event => setSelectedVoiceURI(event.target.value)}
                             >
-                                <button
-                                    type="button"
-                                    className={voiceGender === "male" ? "active" : ""}
-                                    aria-pressed={voiceGender === "male"}
-                                    disabled={audioState !== "stopped"}
-                                    onClick={() => setVoiceGender("male")}
-                                >
-                                    Male
-                                </button>
+                                <option value="">System default</option>
 
-                                <button
-                                    type="button"
-                                    className={voiceGender === "female" ? "active" : ""}
-                                    aria-pressed={voiceGender === "female"}
-                                    disabled={audioState !== "stopped"}
-                                    onClick={() => setVoiceGender("female")}
-                                >
-                                    Female
-                                </button>
-                            </div>
+                                {englishVoices.map(voice => (
+                                    <option
+                                        key={`${voice.voiceURI}-${voice.lang}`}
+                                        value={voice.voiceURI}
+                                    >
+                                        {voice.name} ({voice.lang})
+                                    </option>
+                                ))}
+                            </select>
                         </div>
 
                         <div className="audio-buttons">

@@ -392,3 +392,30 @@
         padding: 8px;
     }
 }
+
+.sighting-dialog .voice-dropdown {
+    flex: 1;
+    min-width: 0;
+    max-width: 350px;
+
+    padding: 9px 12px;
+    border: 1px solid #596358;
+    border-radius: 8px;
+
+    background: #19221d;
+    color: #f2e5cc;
+
+    font: inherit;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sighting-dialog .voice-dropdown:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.sighting-dialog .voice-dropdown:focus-visible {
+    outline: 2px solid #d2b789;
+    outline-offset: 2px;
+}
